@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class ShroomSpawner : MonoBehaviour
 {
-    public GameObject[] objectsToSpawn;
+    public GameObject[] ShroomsToSpawn;
     public Vector2 spawnAreaSize;
     public float spawnDelay = 2f;
 
     private void Start()
     {
-        if (objectsToSpawn.Length == 0)
+        if (ShroomsToSpawn.Length == 0)
         {
             Debug.LogError("No shrooms to spawn.");
             enabled = false; // Disable the script to prevent further errors.
         }
 
         // Start spawning objects with a delay
-        InvokeRepeating("SpawnRandomObject", 0f, spawnDelay);
+        InvokeRepeating("SpawnRandomShroom", 0f, spawnDelay);
     }
 
-    private void SpawnRandomObject()
+    private void SpawnRandomShroom()
     {
-        if (objectsToSpawn.Length == 0)
-            return; // No objects to spawn, so just return.
+        if (ShroomsToSpawn.Length == 0)
+            return; // No shrooms to spawn, so just return.
 
         // Generate a random position within the spawn area
         Vector2 spawnPosition = new Vector2(
@@ -32,13 +32,15 @@ public class ShroomSpawner : MonoBehaviour
         );
 
         // Select a random index within the valid range of the array
-        int randomIndex = Random.Range(0, objectsToSpawn.Length);
+        int randomIndex = Random.Range(0, ShroomsToSpawn.Length);
 
         // Instantiate the object if it's within the valid range
-        if (randomIndex >= 0 && randomIndex < objectsToSpawn.Length)
+        if (randomIndex >= 0 && randomIndex < ShroomsToSpawn.Length)
         {
-            GameObject objectToSpawn = objectsToSpawn[randomIndex];
+            GameObject objectToSpawn = ShroomsToSpawn[randomIndex];
             Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+
+
         }
     }
 
