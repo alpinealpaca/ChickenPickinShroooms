@@ -25,7 +25,7 @@ public class ShroomCollector : MonoBehaviour
         {
             shroomCount++;
 
-            if (shroomCount >= 5)
+            if (shroomCount >= 3)
             {
                 //other.GetComponent<GrowBehaviour>().Grow();
                 growScript.Grow();

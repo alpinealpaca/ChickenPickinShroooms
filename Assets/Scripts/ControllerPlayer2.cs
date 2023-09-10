@@ -43,13 +43,13 @@ public class ControllerPlayer2 : MonoBehaviour
         {
             moveX = 1f;
             // Flip character direction
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             moveX = -1f;
             // Flip character direction
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
         }
         else 
         {
