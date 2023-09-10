@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GrowBehaviour : MonoBehaviour
 {
+    public GameObject WinScreen;
+
     private Vector3 initialScale;
     public float growthRate = 0.1f;
     public float shrinkRate = 0.1f;
@@ -14,6 +16,9 @@ public class GrowBehaviour : MonoBehaviour
     {
         initialScale = transform.localScale;
     }
+
+ 
+
     public void Grow()
     {
         Debug.Log("Grow!");
@@ -23,6 +28,14 @@ public class GrowBehaviour : MonoBehaviour
             Debug.Log(growthScore);
             transform.localScale += new Vector3(growthRate, growthRate, 0f);
         } 
+        //Victory
+        if (growthScore >= 3)
+        {
+             Debug.Log("Win");
+             WinScreen.gameObject.SetActive(true);
+
+        }
+       
     }
 
     public void Shrink()
@@ -35,5 +48,6 @@ public class GrowBehaviour : MonoBehaviour
         }
        
     }
+
 
 }
