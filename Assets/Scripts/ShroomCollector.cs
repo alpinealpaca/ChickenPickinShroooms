@@ -15,9 +15,11 @@ public class ShroomCollector : MonoBehaviour
     public Sprite ShroomFill;
     public Sprite noShroom;
 
+
+
     private void Start()
     {
-        growScript = GetComponent<GrowBehaviour>();
+        growScript = GetComponentInChildren<GrowBehaviour>();
     }
 
     void Update()
@@ -31,13 +33,18 @@ public class ShroomCollector : MonoBehaviour
         
         if (other.CompareTag("MagicShroom"))
         {
+            // if (shroomCount >= maxShrooms)
+            // {
+            //     growScript.Grow();
+            // }
 
-            if (shroomCount >= maxShrooms)
+
+            if (shroomCount >= 2)
             {
-                growScript.Grow();
-                
-            }
 
+                StartCoroutine(ResetShrooms());
+            }
+            
             shroomCount++;
 
             Debug.Log("Shrooms: " + shroomCount);
@@ -77,15 +84,18 @@ public class ShroomCollector : MonoBehaviour
                 magicShrooms[i].enabled = false;
             }
             
-            if (shroomCount == 3)
-            {
-                StartCoroutine(ResetShrooms());
-            }
+            // if (shroomCount == 3)
+            // {
+
+            //     StartCoroutine(ResetShrooms());
+            // }
         }     
     }
 
     IEnumerator ResetShrooms()
     {
+        growScript.Grow();
+
         yield return new WaitForSeconds(1.0f);
 
         for (int i = 0; i < magicShrooms.Length; i++)
@@ -94,6 +104,8 @@ public class ShroomCollector : MonoBehaviour
         }
 
         shroomCount = 0;
+
+        //yield break;
     }
 
 

@@ -16,7 +16,8 @@ public class GrowBehaviour : MonoBehaviour
     }
     public void Grow()
     {
-        if (growthScore <=5)
+        Debug.Log("Grow!");
+        if (growthScore <=3)
         {
             growthScore += 1;
             Debug.Log(growthScore);
