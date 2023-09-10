@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 853845870638402211}
   - component: {fileID: 853845870638402208}
-  - component: {fileID: 2625773745122140569}
-  m_Layer: 0
+  - component: {fileID: 2629851627859583370}
+  - component: {fileID: -8143420618814142966}
+  m_Layer: 6
   m_Name: Shroom4
-  m_TagString: Untagged
+  m_TagString: ShrinkingShroom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2625773745122140569
-BoxCollider2D:
+--- !u!70 &2629851627859583370
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,15 +100,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 3}
-    newSize: {x: 2.56, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.56, y: 3}
-  m_EdgeRadius: 0
+  m_Size: {x: 2, y: 2.5}
+  m_Direction: 0
+--- !u!114 &-8143420618814142966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853845870638402209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6045e444a32cd8d46bc9767ae59b5ea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 5
