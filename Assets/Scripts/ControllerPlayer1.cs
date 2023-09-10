@@ -7,6 +7,7 @@ public class ControllerPlayer1 : MonoBehaviour
     private Rigidbody2D rBody;
     private Animator anim;
     private CapsuleCollider2D capsColl2D; //
+    
 
     //movement speed
     [SerializeField] private float moveSpeed;
@@ -20,6 +21,8 @@ public class ControllerPlayer1 : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         ///anim = GetComponent<Animator>();
         capsColl2D = GetComponent<CapsuleCollider2D>(); 
+
+        anim = GetComponent<Animator>();
     }
 
     
@@ -43,20 +46,40 @@ public class ControllerPlayer1 : MonoBehaviour
         {
             moveX = 1f;
             // Flip character direction
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+
+            if (anim != null)
+            {
+                anim.SetBool("K_WalkRight", true); 
+                anim.SetBool("K_WalkLeft", false);
+            }  
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             moveX = -1f;
             // Flip character direction
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
+            if (anim != null)
+            {
+                anim.SetBool("K_WalkLeft", true);
+            anim.SetBool("K_WalkRight", false); 
+            }  
+
         }
         else 
         {
             moveX = 0f;
+
+            if (anim != null)
+            {
+            //anim.SetBool("K_Idle_Left");
+            anim.SetBool("K_WalkLeft", false); // Set K_WalkLeft to false when not moving
+            anim.SetBool("K_WalkRight", false); 
+            }  
+            
         }
-        //animations//
-        ///anim.SetBool("Run", moveX != 0);
+
+             
 
     }
 
