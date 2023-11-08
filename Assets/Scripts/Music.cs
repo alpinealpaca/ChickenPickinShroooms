@@ -19,4 +19,6 @@ public class Music : MonoBehaviour
             Destroy(gameObject); 
         }
     }
+
+    //GetComponent<AudioSource>().volume = 0.5f;
 }

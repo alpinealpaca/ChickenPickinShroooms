@@ -7,7 +7,6 @@ public class ControllerPlayer1 : MonoBehaviour
     private Rigidbody2D rBody;
     private Animator anim;
     private CapsuleCollider2D capsColl2D; //
-    
 
     //movement speed
     [SerializeField] private float moveSpeed;
@@ -23,6 +22,8 @@ public class ControllerPlayer1 : MonoBehaviour
         capsColl2D = GetComponent<CapsuleCollider2D>(); 
 
         anim = GetComponent<Animator>();
+
+
     }
 
     
@@ -46,6 +47,7 @@ public class ControllerPlayer1 : MonoBehaviour
         {
             moveX = 1f;
             // Flip character direction
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
             //transform.localScale = new Vector3(-1, 1, 1);
 
             if (anim != null)
@@ -58,7 +60,9 @@ public class ControllerPlayer1 : MonoBehaviour
         {
             moveX = -1f;
             // Flip character direction
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
             //transform.localScale = new Vector3(1, 1, 1);
+
             if (anim != null)
             {
                 anim.SetBool("K_WalkLeft", true);
